@@ -6,4 +6,5 @@
 建议在本地开发完成之后再上线服务器，所以最好本地也建个表
 ## 数据库
 Android系统内置了 SQLite 数据库引擎
+SQLiteOpenHelper类，借助这个类可以非常简单地对数据库进行创建和升级
 ## splashscreen 
