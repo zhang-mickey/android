@@ -1,5 +1,15 @@
 混合前端（如 RN，Flutter），同一份代码开发iOS和Android
+## IPC
 
+### binder
+
+## Zygote
+android系统中各种进程的启动方式：
+init进程 ––> Zygote进程 ––> SystemServer进程 ––>各种应用进程
+
+启动SystemServer
+
+孵化应用进程
 ## NDK (Native Development Kit)
 允许开发人员使用 C、C++ 和其他原生编程语言编写部分 Android 应用的代码
 ### JNI（Java Native Interface）模块
