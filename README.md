@@ -1,7 +1,17 @@
+# andriod cv
+## 
+
+### Bitmap
+
 混合前端（如 RN，Flutter），同一份代码开发iOS和Android
+## handler
+
 ## IPC
 
 ### binder
+
+## Handler 线程间通信
+Handler 常用于在后台线程中执行耗时操作后，将结果传递给主线程并更新 UI。这样可以避免在主线程中执行耗时操作导致界面卡顿  
 
 ## Zygote
 android系统中各种进程的启动方式：
@@ -24,6 +34,7 @@ AsyncTask内部会创建一个线程池来执行后台任务，然后利用Handl
 ## IntentService原理
 
 ##  ANR（Application Not Responding）
+当我发送一个绘制UI 的消息到主线程Handler之后，经过一定的时间没有被执行，则抛出ANR异常  
 主线程阻塞
 UI线程操作耗时
 
@@ -51,7 +62,15 @@ Bitmap对象不在使用时调用recycle()释放内存
 ## Fragment
 
 ## RecyclerView
-### viewholder
+RecyclerView 支持局部刷新（notifyItemChanged()），即只更新列表中的部分项而不是整个列表，以提高性能和效率
+
+### viewholder 复用机制
+用于缓存子项的视图引用，以减少 findViewById() 的调用次数
+
+缓存到CachedView中的ViewHolder并不会清理相关信息(比如position、state等)，因此刚移出屏幕的ViewHolder，再次被移回屏幕时，只要从CachedView中查找并显示即可，不需要重新绑定(bindViewHolder)。
+
+而缓存到RecycledViewPool中的ViewHolder会被清理状态和位置信息，因此从RecycledViewPool查找到ViewHolder，需要重新调用bindViewHolder绑定数据
+
 ![image](https://github.com/zhang-mickey/android/assets/145342600/e522adb9-3323-4335-b1f0-ca2139ff96b7)
 
 ## 自定义ViewGroup
