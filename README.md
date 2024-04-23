@@ -1,4 +1,9 @@
 混合前端（如 RN，Flutter），同一份代码开发iOS和Android
+
+## NDK (Native Development Kit)
+允许开发人员使用 C、C++ 和其他原生编程语言编写部分 Android 应用的代码
+### JNI（Java Native Interface）模块
+
 ## AsyncTask原理
 AsyncTask内部会创建一个线程池来执行后台任务，然后利用Handler将后台线程的执行结果传递给主线程，从而更新UI
 
