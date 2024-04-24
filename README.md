@@ -11,6 +11,9 @@ app原生开发后期有相应的改动，如果需要用户体验新的功能�
 
 ## handler
 
+## hooker
+![image](https://github.com/zhang-mickey/android/assets/145342600/0870c999-e69d-405b-8cde-5ecb24a693fd)
+
 ## IPC
 
 ### binder
