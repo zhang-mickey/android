@@ -2,8 +2,13 @@
 ## 
 
 ### Bitmap
+#### Glide
 
-混合前端（如 RN，Flutter），同一份代码开发iOS和Android
+## Flutter
+app原生开发后期有相应的改动，如果需要用户体验新的功能，那么用户必须得升级app才行；而非原生的则只用更新服务器上的代码即可
+
+ ![image](https://github.com/zhang-mickey/android/assets/145342600/5b27a57a-e2a0-4fcb-acd5-7b8117822005)
+
 ## handler
 
 ## IPC
