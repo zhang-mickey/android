@@ -1,6 +1,12 @@
 # andriod cv
-## 
 
+## apk压缩
+**资源压缩**  
+
+### 代码混淆
+ProGuard  minifyEnabled为true的作用：启用代码混淆、压缩APK  
+
+通过混淆可以提高程序的安全性，增加逆向工程的难度，同时也有效缩减了apk的体积
 ### Bitmap
 #### Glide
 
