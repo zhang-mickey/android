@@ -186,7 +186,22 @@ php header的用法
 ```
 header('Content-Type: application/json; charset=utf-8');
 ```
+## php 表单
 
+## PHP JSON
+将 PHP 数组转换为 JSON 格式数据
+```
+<?php
+   $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+   echo json_encode($arr);
+?>
+
+```
+```
+{"a":1,"b":2,"c":3,"d":4,"e":5}
+
+```
+[]: 这是 PHP 中的数组附加操作符。它表示将右侧的值添加到数组的末尾
 
 # android
 设备查询 个人中心 我的订单 我的钱包
