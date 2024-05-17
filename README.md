@@ -158,6 +158,11 @@ build code 连按五次 打开
 
 
 # Java
+## spring boost
+依赖注入 IoC（Inversion of Control:控制反转
+
+![image](https://github.com/zhang-mickey/android/assets/145342600/29ac258d-a61e-4041-bf8c-9f7a5827d290)
+
 ## 
 C++需要开发者手动去管理内存分配，没有 JavaScript 及Java中垃圾回收（GC）的机制
 ## 
