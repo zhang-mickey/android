@@ -1,6 +1,10 @@
 # andriod cv
 https://github.com/chiclaim/AndroidAll?tab=readme-ov-file
 
+## AccessibilityService
+### 自动化UI测试
+自动抢红包、自动点赞
+
 ## apk压缩
 **资源压缩**  
 
@@ -235,3 +239,6 @@ startDiscovery()方法来扫描附近的蓝牙设备
 #### ViewModel
 数据存储：使用本地SQLite数据库存储数据
 数据导出：导出员工和任务数据
+
+## 幸运转盘
+### 
