@@ -101,7 +101,8 @@ Bitmap对象不在使用时调用recycle()释放内存
 对象被生命周期长的对象引用，如activity被静态集合引用导致activity不能释放
 ### 线程产生内存泄露
 主要原因在于线程生命周期的不可控
-
+## DrawerLayout
+https://www.kancloud.cn/digest/sdksdk0/126441
 ## Fragment
 
 ## RecyclerView
