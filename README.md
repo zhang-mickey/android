@@ -1,6 +1,7 @@
 # andriod cv
 https://github.com/chiclaim/AndroidAll?tab=readme-ov-file
-
+## Retrofit
+核心原理为使用 OkHttp 发送网络请求，通过动态代理将定义的 Java 接口转化为 HTTP 请求，然后将请求发送给服务器
 ## AccessibilityService
 ### 自动化UI测试
 自动抢红包、自动点赞
