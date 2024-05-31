@@ -239,12 +239,28 @@ startDiscovery()方法来扫描附近的蓝牙设备
 单Activity+多Fragment模式
 ### jetpack Compose
 #### Navigation组件
-使用NavHost,声明页面路由
+使用 NavHost 可组合函数定义应用中的路线和界面
 
-Composable 函数可以通过使用 remember 将本地状态存储在内存中
+使用 NavHostController 在界面之间导航
+
+
 #### ViewModel
-数据存储：使用本地SQLite数据库存储数据
-数据导出：导出员工和任务数据
+熟悉 Android 架构组件 ViewModel。能够使用 ViewModelProvider.Factory 实例化 ViewModel
 
+
+#### 持久化room 
+Room 是在 SQLite 数据库基础上构建的一个抽象层
+
+Room 并不直接使用 SQLite，而是负责简化数据库设置和配置以及数据库与应用交互方面的琐碎工作
+##### room 实体
+![image](https://github.com/zhang-mickey/android/assets/145342600/682dd515-2a67-4599-a160-59f14215bd02)
+
+##### Room DAO
+
+##### Room Database
+
+数据存储：使用本地SQLite数据库存储数据
+
+数据导出：导出员工和任务数据
 ## 幸运转盘
 ### 
