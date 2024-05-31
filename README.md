@@ -236,8 +236,12 @@ startDiscovery()方法来扫描附近的蓝牙设备
 
 
 ## 单机
-
+单Activity+多Fragment模式
 ### jetpack Compose
+#### Navigation组件
+使用NavHost,声明页面路由
+
+Composable 函数可以通过使用 remember 将本地状态存储在内存中
 #### ViewModel
 数据存储：使用本地SQLite数据库存储数据
 数据导出：导出员工和任务数据
