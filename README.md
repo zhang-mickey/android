@@ -243,17 +243,21 @@ startDiscovery()方法来扫描附近的蓝牙设备
 
 使用 NavHostController 在界面之间导航
 
+![image](https://github.com/zhang-mickey/android/assets/145342600/764d40a4-4fe3-47bb-8773-118774732d16)
 
-#### ViewModel
+#### ViewModel 
 熟悉 Android 架构组件 ViewModel。能够使用 ViewModelProvider.Factory 实例化 ViewModel
 
+
+#### livedata
+![image](https://github.com/zhang-mickey/android/assets/145342600/3710f114-62a7-4778-89e0-ebee322df7e4)
 
 #### 持久化room 
 Room 是在 SQLite 数据库基础上构建的一个抽象层
 
 Room 并不直接使用 SQLite，而是负责简化数据库设置和配置以及数据库与应用交互方面的琐碎工作
 ##### room 实体
-![image](https://github.com/zhang-mickey/android/assets/145342600/682dd515-2a67-4599-a160-59f14215bd02)
+
 
 ##### Room DAO
 
