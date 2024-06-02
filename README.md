@@ -165,6 +165,7 @@ build code 连按五次 打开
 
 
 # Java
+SNI:多个域名共享同一个地址并使用不同的证书
 ## spring boost
 依赖注入 IoC（Inversion of Control:控制反转
 
