@@ -167,6 +167,16 @@ build code 连按五次 打开
 # Java
 SNI:多个域名共享同一个地址并使用不同的证书
 ## spring boost
+
+### WebSocket
+HTTP 协议有一个缺陷：通信只能由客户端发起   做不到服务器主动向客户端推送信息 
+![image](https://github.com/zhang-mickey/android/assets/145342600/b0bc9109-c5ba-48f2-b3ec-6324a4c89253)
+
+这种单向请求的特点，注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦。我们只能使用"轮询"：每隔一段时候，就发出一个询问，了解服务器有没有新的信息。最典型的场景就是聊天室。
+
+轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）
+###
+
 依赖注入 IoC（Inversion of Control:控制反转
 
 ![image](https://github.com/zhang-mickey/android/assets/145342600/29ac258d-a61e-4041-bf8c-9f7a5827d290)
@@ -193,29 +203,7 @@ static 是 Java 中的一个关键字，当用它来修饰成员变量时，那�
 << 运算符表示按位左移运算符，将其左操作数的位向左移动右操作数指定的位数。1 << 30 表示将十进制数 1 的二进制表示向左移动 30 位
 
 
-# php
-php header的用法
 
-(1)声明content-type
-```
-header('Content-Type: application/json; charset=utf-8');
-```
-## php 表单
-
-## PHP JSON
-将 PHP 数组转换为 JSON 格式数据
-```
-<?php
-   $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
-   echo json_encode($arr);
-?>
-
-```
-```
-{"a":1,"b":2,"c":3,"d":4,"e":5}
-
-```
-[]: 这是 PHP 中的数组附加操作符。它表示将右侧的值添加到数组的末尾
 
 # android
 设备查询 个人中心 我的订单 我的钱包
@@ -282,3 +270,35 @@ Room 并不直接使用 SQLite，而是负责简化数据库设置和配置以�
 ·              条件3：当剩余价格X1小于0.01的时候，砍价成功。
 
 ·               条件4：砍价超过24H，强制结束。
+
+
+在后台管理系统中：开发【砍价活动】功能，新增一个砍价活动，设置砍价人数、商品、商品价格、商品最低价等，新增活动的时候，在【新增砍价活动】接口中，根据砍价人数和商品价格、商品的最低价计算出对应的一个砍价随机数（有小数）的list集合
+
+
+
+
+
+
+# php
+php header的用法
+
+(1)声明content-type
+```
+header('Content-Type: application/json; charset=utf-8');
+```
+## php 表单
+
+## PHP JSON
+将 PHP 数组转换为 JSON 格式数据
+```
+<?php
+   $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+   echo json_encode($arr);
+?>
+
+```
+```
+{"a":1,"b":2,"c":3,"d":4,"e":5}
+
+```
+[]: 这是 PHP 中的数组附加操作符。它表示将右侧的值添加到数组的末尾
