@@ -167,6 +167,12 @@ build code 连按五次 打开
 # Java
 SNI:多个域名共享同一个地址并使用不同的证书
 ## spring boost
+Spring Initializr Java Support
+
+
+lsof -i :8080 显示占用8080端口的进程信息
+
+### 使用 JPA 访问数据库
 
 ### WebSocket
 HTTP 协议有一个缺陷：通信只能由客户端发起   做不到服务器主动向客户端推送信息 
