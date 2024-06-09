@@ -10,6 +10,15 @@ app原生开发后期有相应的改动，如果需要用户体验新的功能�
 程序主要有两种运行方式：静态编译与动态解释。静态编译的程序在执行前程序会被提前编译为机器码（或中间字节码），通常将这种类型称为AOT （Ahead of time）即 “提前编译”。而解释执行则是在运行时将源码实时翻译为机器码来执行，通常将这种类型称为JIT（Just-in-time）即“即时编译”。
 
 AOT 程序的典型代表是用 C/C++ 开发的应用，它们必须在执行前编译成机器码；而JIT的代表则非常多，如JavaScript、python等
+
+![image](https://github.com/zhang-mickey/android/assets/145342600/99df411a-7792-4285-b9e0-316f16b7dce7)
+
+## 热更新
+APP发布到市场后，难免会遇到严重的BUG阻碍用户使用，因此有在不发布新版本APP的情况下使用热更新技术立即修复BUG需求
+
+一种是在AppStore内进行更新，更新时重新下载全部安装包
+
+另一种就是热更新，用户只有在打开App时才会发现热更新包，更新时只需下载安装更新部分的代码，再次打开时即可
 ## Dart 强类型语言
 任何变量都是有确定类型的
 
@@ -26,12 +35,38 @@ dynamic声明的对象编译器会提供所有可能的组合，而Object声明�
 用 async/await 消除 callback hell
 
 ### Stream
+## State
+State的生命周期
+![image](https://github.com/zhang-mickey/android/assets/145342600/597f9819-7382-4745-9250-6dd84d99be82)
 
-## widget
-在 Flutter 中，大多数东西都是 widget（后同“组件”或“部件”），包括对齐（Align）、填充（Padding）、手势处理（GestureDetector）等
+State 中有两个常用属性
+### widget
+在 Flutter 中，大多数东西都是 widget，包括对齐（Align）、填充（Padding）、手势处理（GestureDetector）等
 
-### Stateful widget 
-### Stateless widget
+Flutter 中如果属性发生变化则会重新构建Widget树
+
+根据 Widget 树生成一个 Element 树，Element 树中的节点都继承自 Element 类。
+
+根据 Element 树生成 Render 树（渲染树），渲染树中的节点都继承自RenderObject 类。
+
+根据渲染树生成 Layer 树，然后上屏显示，Layer 树中的节点都继承自 Layer 类。
+
+真正的布局和渲染逻辑在 Render 树中，Element 是 Widget 和 RenderObject 的粘合剂，可以理解为一个中间代理
+![image](https://github.com/zhang-mickey/android/assets/145342600/55faca18-c890-49bf-98ff-3d7b5f4530ab)
+
+#### Stateful widget 
+####  Stateless widget
+用于不需要维护状态的场景，它通常在build方法中通过嵌套其他 widget 来构建UI
+
+### context
+
+
+
+
+
+
+
+
 ### 网页加载控件WebView
 ![image](https://github.com/zhang-mickey/android/assets/145342600/1174d21c-29d8-4653-a53d-4a5f79c6767e)
 
@@ -164,6 +199,7 @@ DK 是 Android 提供的工具集，用于在 Android 应用中开发 C/C++ 库�
 建议在本地开发完成之后再上线服务器，所以最好本地也建个表
 #### 
 Mac和Ubuntu系统都是默认 安装好Apache服务器的，只需要启动一下即可
+
 ### XML传输格式
 每个需要访问网络的应用程序都会有一个自己的服务器 可以向服务器提交
 数据，也可以从服务器上获取数据
@@ -410,8 +446,8 @@ Room 并不直接使用 SQLite，而是负责简化数据库设置和配置以�
 
 
 
-
-
+### 需求
+当用户没有登录时可以看店铺、商品等信息，但交易记录、购物车、用户个人信息等页面需要登录后才能看。
 
 
 
