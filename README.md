@@ -19,6 +19,12 @@ APP发布到市场后，难免会遇到严重的BUG阻碍用户使用，因此�
 一种是在AppStore内进行更新，更新时重新下载全部安装包
 
 另一种就是热更新，用户只有在打开App时才会发现热更新包，更新时只需下载安装更新部分的代码，再次打开时即可
+
+Android 热修复补丁的大致制作流程：首先基于线上代码进行逻辑修复并二次打包，然后补丁生成工具自动比较修复包和线上包的差异，最后制作出轻量的补丁包。因此在补丁制作的过程中，需要解决两个主要问题：
+
+对于没有变动的代码，如何在二次打包时保证和线上包一致；
+
+对于本次修复的代码，如何在经过编译、优化、混淆之后准确识别出来并生成补丁代码。
 ## Dart 强类型语言
 任何变量都是有确定类型的
 
@@ -67,7 +73,7 @@ Flutter 中如果属性发生变化则会重新构建Widget树
 
 
 
-### 网页加载控件WebView
+## 网页加载控件WebView
 ![image](https://github.com/zhang-mickey/android/assets/145342600/1174d21c-29d8-4653-a53d-4a5f79c6767e)
 
 
@@ -96,13 +102,27 @@ Glide 从来都不会直接将图片的完整尺寸全部加载到内存中，�
 自动抢红包、自动点赞
 
 ## apk压缩
-**资源压缩**  
+压缩（shrink）：移除未被使用的类、方法、字段等；
+
+优化（optimize）：字节码优化、方法内联等操作；
+
+混淆（obfuscate）：使用简短无意义的名称重命名类名、方法名、字段名等，增加反编译难度；
+
+预校验（preverify）：对class进行预校验 
 
 ### 代码混淆
-ProGuard  minifyEnabled为true的作用：启用代码混淆、压缩APK  
-
 通过混淆可以提高程序的安全性，增加逆向工程的难度，同时也有效缩减了apk的体积
+### ProGuard  
+minifyEnabled为true的作用：启用代码混淆、压缩APK  
 
+![image](https://github.com/zhang-mickey/android/assets/145342600/499e6b1e-4ad3-4e06-b748-ac451a49e657)
+
+
+### R8
+![image](https://github.com/zhang-mickey/android/assets/145342600/de84c1b4-1c7c-4581-87ba-597cf8dd66d5)
+
+### Javassist
+一个开源的分析、编辑和创建Java字节码的类库
 ## handler
 
 ## hooker
@@ -308,7 +328,7 @@ System.out.println(s1 == s3); // true，现在s1和s3引用同一个字符串池
 
 ```
 
-## spring boost
+# spring boost
 Spring Initializr Java Support
 
 
@@ -369,7 +389,7 @@ HTTP 协议有一个缺陷：通信只能由客户端发起   做不到服务器
 
 
 
-# android
+
 用户能够通过手机查看充电桩的位置、充电进度、缴费以及实施远程监控
 APP通过手机蓝牙，发送指令到充电桩，充电桩收到蓝牙指令后，给汽车进行充电。
 为避免用户逃单，采用预付费方式
@@ -385,7 +405,7 @@ APP通过手机蓝牙，发送指令到充电桩，充电桩收到蓝牙指令�
 创建一个蓝牙适配器并进行初始化
 startDiscovery()方法来扫描附近的蓝牙设备
 
-
+# android
 
 ## 单机
 单Activity+多Fragment模式
