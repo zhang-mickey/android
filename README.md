@@ -152,6 +152,9 @@ Dalvik每次都要编译再运行，Art只会安装时启动编译
 Art占用空间比Dalvik大（原生代码占用的存储空间更大），“空间换时间”
 
 Art减少编译，减少了CPU使用频率，使用明显改善电池续航
+
+
+
 ## 内存泄露
 资源对象没关闭造成的内存泄漏，如查询数据库后没有关闭游标cursor
 
@@ -200,9 +203,6 @@ DK 是 Android 提供的工具集，用于在 Android 应用中开发 C/C++ 库�
 #### 
 Mac和Ubuntu系统都是默认 安装好Apache服务器的，只需要启动一下即可
 
-### XML传输格式
-每个需要访问网络的应用程序都会有一个自己的服务器 可以向服务器提交
-数据，也可以从服务器上获取数据
 ## 数据库
 ### 本地存储
 Android系统内置了 SQLite 数据库引擎
@@ -227,6 +227,69 @@ build code 连按五次 打开
 
 # Java
 SNI:多个域名共享同一个地址并使用不同的证书
+## 类加载
+Java类的加载过程是动态的，它不会一次性把程序所有的类全部加载后再运行
+
+String类被JVM引导类加载器（Bootstrap ClassLoader）加载，因为它是核心类库的一部分。
+
+## 双亲委派
+当类加载器加载一个类时，它会首先将请求委派给它的父加载器
+![image](https://github.com/zhang-mickey/android/assets/145342600/868af27b-6ce7-46a6-bc6d-a64f1ca4616c)
+
+避免类的重复加载：确保所有类在加载时由最高级别的加载器加载，以避免重复加载。
+
+安全性：防止自定义类覆盖核心类库中的类，保证核心类库的安全性和稳定性。
+## ArrayList
+ArrayList是基于动态数组实现的。它的元素存储在一个连续的内存块中。
+当数组容量不足时，会自动扩容，通常是当前容量的1.5倍或2倍。
+
+查找 索引
+##  LinkedList
+LinkedList是基于双向链表实现的。每个元素包含一个数据域和两个指针（分别指向前一个和后一个节点）。
+
+查找 遍历
+## final
+使用final修饰的变量值一旦被初始化后就不能再改变
+
+使用final修饰的方法不能被子类重写（override）
+
+使用final修饰的类不能被继承
+#### 
+static 是 Java 中的一个关键字，当用它来修饰成员变量时，那么该变量就属于该类，而不是该类的实例。所以用 static 修饰的变量，它的生命周期是很长的
+
+##  GC
+C++需要开发者手动去管理内存分配，没有 JavaScript 及Java中垃圾回收（GC）的机制
+### Mark-Sweep
+### Mark-Compact
+## 内存溢出（Out of Memory, OOM）
+
+## 多线程编程
+### synchronized
+当一个方法或者代码块被 synchronized 修饰时，同一时刻只有一个线程可以执行该方法或者代码块，其他线程必须等待。
+### volatile
+当一个变量被 volatile 修饰时，线程在读取该变量的值时，会直接从内存中读取，而不是从线程的本地缓存中读取，同时在修改该变量的值时，会立即更新到内存中，而不是延迟到线程结束时。
+
+### Runnable
+Runnable 接口定义了一个名为 run() 的方法，该方法是线程执行的入口点。通过实现 Runnable 接口并重写 run() 方法，可以创建一个可执行的任务，然后将该任务传递给一个 Thread 对象来执行。
+## 堆heap  
+所有通过new关键字创建的对象都会被分配到堆中。
+## String pool
+旨在减少重复字符串对象的内存消耗
+###  String a = new String("abc")与String a = "abc"的区别
+```
+String s1 = "hello"; // "hello"存储在字符串池中
+String s2 = "hello"; // s2引用字符串池中的同一个"hello"
+String s3 = new String("hello"); // s3是一个新的字符串对象，存储在堆中
+
+System.out.println(s1 == s2); // true，s1和s2引用同一个字符串池中的对象
+System.out.println(s1 == s3); // false，s1和s3引用不同的对象，s3在堆中
+System.out.println(s1.equals(s3)); // true，s1和s3的内容相同
+
+s3 = s3.intern(); // 将s3引用改为字符串池中的对象
+System.out.println(s1 == s3); // true，现在s1和s3引用同一个字符串池中的对象
+
+```
+
 ## spring boost
 Spring Initializr Java Support
 
@@ -266,8 +329,7 @@ HTTP 协议有一个缺陷：通信只能由客户端发起   做不到服务器
 
 ![image](https://github.com/zhang-mickey/android/assets/145342600/29ac258d-a61e-4041-bf8c-9f7a5827d290)
 
-## 
-C++需要开发者手动去管理内存分配，没有 JavaScript 及Java中垃圾回收（GC）的机制
+
 ## 
 强类型语言要求在编译时或运行时严格执行类型检查，确保变量和表达式具有明确的数据类型
 ##
@@ -278,26 +340,6 @@ C++需要开发者手动去管理内存分配，没有 JavaScript 及Java中垃�
 提高响应速度：任务到达时，无需等待线程创建即可立即执行
 ![image](https://github.com/zhang-mickey/android/assets/145342600/d673f5dd-cd7b-4821-8fde-f574e93169fa)
 
-#### 
-static 是 Java 中的一个关键字，当用它来修饰成员变量时，那么该变量就属于该类，而不是该类的实例。所以用 static 修饰的变量，它的生命周期是很长的
-
-## 堆heap  
-所有通过new关键字创建的对象都会被分配到堆中。
-## String pool
-###  String a = new String("abc")与String a = "abc"的区别
-```
-String s1 = "hello"; // "hello"存储在字符串池中
-String s2 = "hello"; // s2引用字符串池中的同一个"hello"
-String s3 = new String("hello"); // s3是一个新的字符串对象，存储在堆中
-
-System.out.println(s1 == s2); // true，s1和s2引用同一个字符串池中的对象
-System.out.println(s1 == s3); // false，s1和s3引用不同的对象，s3在堆中
-System.out.println(s1.equals(s3)); // true，s1和s3的内容相同
-
-s3 = s3.intern(); // 将s3引用改为字符串池中的对象
-System.out.println(s1 == s3); // true，现在s1和s3引用同一个字符串池中的对象
-
-```
 
 ## hashmap
 线程不安全，红黑树
