@@ -78,8 +78,19 @@ Flutter 中如果属性发生变化则会重新构建Widget树
 
 # andriod cv
 https://github.com/chiclaim/AndroidAll?tab=readme-ov-file
-## Retrofit
+## 网络访问框架 Retrofit
 核心原理为使用 OkHttp 发送网络请求，通过动态代理将定义的 Java 接口转化为 HTTP 请求，然后将请求发送给服务器
+## 图片加载框架
+
+### Bitmap
+#### Glide
+先 with()，再 load()，最后 into()
+
+with() 方法中传入的实例会决定 Glide 加载图片的生命周期，如果传入的是 Activity 或者 Fragment 的实例，那么当这个 Activity 或 Fragment 被销毁的时候，图片加载也会停止。如果传入的是 ApplicationContext，那么只有当应用程序被杀掉的时候，图片加载才会停止。
+
+Glide 从来都不会直接将图片的完整尺寸全部加载到内存中，而是用多少加载多少。Glide 会自动判断 ImageView 的大小，然后只将这么大的图片像素加载到内存当中，帮助我们节省内存开支
+
+
 ## AccessibilityService
 ### 自动化UI测试
 自动抢红包、自动点赞
@@ -91,14 +102,6 @@ https://github.com/chiclaim/AndroidAll?tab=readme-ov-file
 ProGuard  minifyEnabled为true的作用：启用代码混淆、压缩APK  
 
 通过混淆可以提高程序的安全性，增加逆向工程的难度，同时也有效缩减了apk的体积
-### Bitmap
-#### Glide
-先 with()，再 load()，最后 into()
-
-with() 方法中传入的实例会决定 Glide 加载图片的生命周期，如果传入的是 Activity 或者 Fragment 的实例，那么当这个 Activity 或 Fragment 被销毁的时候，图片加载也会停止。如果传入的是 ApplicationContext，那么只有当应用程序被杀掉的时候，图片加载才会停止。
-
-Glide 从来都不会直接将图片的完整尺寸全部加载到内存中，而是用多少加载多少。Glide 会自动判断 ImageView 的大小，然后只将这么大的图片像素加载到内存当中，帮助我们节省内存开支
-
 
 ## handler
 
@@ -164,7 +167,18 @@ Bitmap对象不在使用时调用recycle()释放内存
 
 对象被生命周期长的对象引用，如activity被静态集合引用导致activity不能释放
 ### 线程产生内存泄露
+
+
 主要原因在于线程生命周期的不可控
+
+### leak cannery
+监视和分析
+#### 强引用
+强引用是使用最普遍的引用。一个对象具有强引用，则在GC发生时，该对象将不会回收。当Jvm虚拟机内存空间不足时，虚拟机会抛出OutOfMemoryError错误，不会回收具有强引用的对象来解决内存不足的问题。
+#### 软引用
+当一个对象只有软引用，若虚拟机内存空间足够，垃圾回收器就不会回收该对象； 若内存空间不足，下次GC时这些只有软引用对象将被回收。
+#### 弱引用
+只具有弱引用的对象拥有更短暂的生命周期。在GC发生时，若一个对象只有弱引用，不管虚拟机内存空间是否足够，都会回收它的内存
 ## DrawerLayout
 https://www.kancloud.cn/digest/sdksdk0/126441
 ## Fragment
