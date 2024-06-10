@@ -280,6 +280,25 @@ C++需要开发者手动去管理内存分配，没有 JavaScript 及Java中垃�
 
 #### 
 static 是 Java 中的一个关键字，当用它来修饰成员变量时，那么该变量就属于该类，而不是该类的实例。所以用 static 修饰的变量，它的生命周期是很长的
+
+## 堆heap  
+所有通过new关键字创建的对象都会被分配到堆中。
+## String pool
+###  String a = new String("abc")与String a = "abc"的区别
+```
+String s1 = "hello"; // "hello"存储在字符串池中
+String s2 = "hello"; // s2引用字符串池中的同一个"hello"
+String s3 = new String("hello"); // s3是一个新的字符串对象，存储在堆中
+
+System.out.println(s1 == s2); // true，s1和s2引用同一个字符串池中的对象
+System.out.println(s1 == s3); // false，s1和s3引用不同的对象，s3在堆中
+System.out.println(s1.equals(s3)); // true，s1和s3的内容相同
+
+s3 = s3.intern(); // 将s3引用改为字符串池中的对象
+System.out.println(s1 == s3); // true，现在s1和s3引用同一个字符串池中的对象
+
+```
+
 ## hashmap
 线程不安全，红黑树
 ### 扩容
