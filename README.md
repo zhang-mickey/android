@@ -334,10 +334,20 @@ Spring Initializr Java Support
 
 lsof -i :8080 显示占用8080端口的进程信息
 
+
+## JDBC Java DataBase Connectivity
+使用Java程序访问数据库时，Java代码并不是直接通过TCP连接去访问数据库，而是通过JDBC接口来访问，而JDBC接口则通过JDBC驱动来实现真正对数据库的访问
+![image](https://github.com/zhang-mickey/android/assets/145342600/efe4ba38-451e-4082-91ce-ff8b6fbe0c7e)
+
+
 ### 使用 JPA 访问数据库
 JPA不仅允许我们与数据库交互，还可以将记录从数据库直接映射到java对象，而无需开发人员方面的任何手动操作
+### Mybatis
+ORM 就是一种为了解决面向对象与关系型数据库中数据类型不匹配的技术，它通过描述Java对象与数据库表之间的映射关系，自动将Java应用程序中的对象持久化到关系型数据库的表中
+### Hibernate
 
-RedHat的Hibernate是目前Java世界中最受欢迎的实现
+全表映射的框架
+
 ### WebSocket
 HTTP 协议有一个缺陷：通信只能由客户端发起   做不到服务器主动向客户端推送信息 
 ![image](https://github.com/zhang-mickey/android/assets/145342600/b0bc9109-c5ba-48f2-b3ec-6324a4c89253)
