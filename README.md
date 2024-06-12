@@ -85,6 +85,12 @@ Flutter 中如果属性发生变化则会重新构建Widget树
 # andriod cv
 https://github.com/chiclaim/AndroidAll?tab=readme-ov-file
 ## 网络访问框架 Retrofit
+在安卓客户端与服务器数据库通信时，通常不会直接从安卓应用程序访问数据库，而是通过服务器端的API进行通信
+需要在服务器端设置一个API（通常使用REST或GraphQL）来处理数据库的CRUD（创建、读取、更新、删除）操作。常见的技术栈包括：
+
+	•	后端框架：如Node.js（Express），Python（Django/Flask），Java（Spring Boot），PHP（Laravel），等。
+	•	数据库：如MySQL，PostgreSQL，MongoDB，等。
+ 
 核心原理为使用 OkHttp 发送网络请求，通过动态代理将定义的 Java 接口转化为 HTTP 请求，然后将请求发送给服务器
 ## 图片加载框架
 
